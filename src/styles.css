@@ -1,1 +1,32 @@
-/* You can add global styles to this file, and also import other style files */
+@import "tailwindcss";
+html {
+	-ms-overflow-style: none;  /* Internet Explorer 10+ */
+	scrollbar-width: none;  /* Firefox */
+}
+html::-webkit-scrollbar {
+	display: none;  /* Safari and Chrome */
+}
+@font-face {
+	font-family	: 'UbuntuFont';
+	src			: url('/fonts/ubuntu/Ubuntu-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
+}
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+	--color-chocolate		: #86563c;
+	--width-42				: 170px;
+	--spacing-42			: 172px;
+	--color-primary-dark	: #14161A;
+	--color-light-green		: #98FAEC;
+
+
+	/* --color-primary			: #F5F8FF; */
+	/* --breakpoint-c-sm		: 645px;
+	--breakpoint-c-md		: 770px;
+	--breakpoint-c-lg		: 950px;
+	--breakpoint-c-tablet	: 1100px; */
+	/* --screens-sm		: 1024px; */
+	/* --screens-md		: 748px; */
+	/* --screens-tablet	: 900px; */
+	/* --screens-lg		: 1024px; */
+}
