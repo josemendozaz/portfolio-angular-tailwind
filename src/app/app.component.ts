@@ -1,5 +1,5 @@
 /**
- * IMPORT (MODULES/COMPONENTS/SERVICES)
+ * IMPORT MODULES
  */
 import { Component, ElementRef, HostListener, Inject, inject, Injector, NgZone, PLATFORM_ID, Renderer2, ViewChild } from '@angular/core';
 import {
@@ -12,17 +12,19 @@ import {
 	RouterModule,
 	RouterOutlet
 } from '@angular/router';
-// import { MaterialModule } from './material/material.module';
-// import { HomeComponent } from './components/home/home.component';
-// import { SkillsComponent } from './components/skills/skills.component';
-// import { WorksComponent } from './components/works/works.component';
-// import { NavigationMenuComponent } from "./navigation-menu/navigation-menu.component";
-// import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+/**
+ * IMPORT COMPONENTS
+ */
+import { NavigationMenuComponent } from "@components/navigation-menu.component";
 import { HomeComponent } from '@components/home.component';
+import { SkillsComponent } from "@components/skills.component";
 import { FooterComponent } from '@components/footer.component';
-import { IsPlatformBrowserService } from './services/is-platform-browser.service';
-import { ScreenLoadingService } from './services/screen-loading.service';
-import { SkillsComponent } from "./components/skills.component";
+/**
+ * IMPORT SERVICES
+ */
+// import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
+import { IsPlatformBrowserService } from '@services/is-platform-browser.service';
+import { ScreenLoadingService } from '@services/screen-loading.service';
 /**
  * @class			AppComponent
  *
@@ -33,11 +35,12 @@ import { SkillsComponent } from "./components/skills.component";
 	selector	: 'app-root',
 	standalone	: true,
 	imports: [
-    	/*RouterOutlet*/
-    	HomeComponent, /* COMPONENT */
-    	FooterComponent,
-    	SkillsComponent
-	],
+    /*RouterOutlet*/
+    HomeComponent, /* COMPONENT */
+    FooterComponent,
+    SkillsComponent,
+    NavigationMenuComponent
+],
 	// templateUrl	: './app.component.html',
 	template	: `
 		<!-- SCREEN LOADING -->
@@ -49,7 +52,7 @@ import { SkillsComponent } from "./components/skills.component";
 			</div> -->
 		}
 		<!-- NAVIGATION MENU -->
-		<!-- <app-navigation-menu></app-navigation-menu> -->
+		<app-navigation-menu></app-navigation-menu>
 
 
 		<!-- CONTENT -->

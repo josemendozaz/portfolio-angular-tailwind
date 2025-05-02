@@ -4,52 +4,22 @@
 import { Component } from '@angular/core';
 import * as AOS from 'aos';
 import Bowser from "bowser";
+import { NavHeaderComponent } from './nav-header.component';
 /**
  * @class			WorksComponent
  * @description		Componente que contiene la sección de trabajos realizados
  */
 @Component({
 	selector	: 'app-home',
-	imports		: [],
+	standalone	: true,
+	imports		: [ NavHeaderComponent ],
 	template	: `
 		<div class="nav-header pt-8 md:pt-10 lg:pt-5">
-			<div class="menu w-full">
-				<div class="grid grid-cols-[30%_20%_20%_15%_15%] md:grid-cols-[30%_20%_20%_15%_15%] md:items-center md:justify-center">
-					<div class="flex items-center justify-center cursor-pointer text-center">
-						<h1 class="text-[10px] text-light-green md:ml-0 md:text-3xl lg:text-2xl"> &lt;c/&gt; </h1>
-						<h2 class="text-[10px] text-white md:text-3xl lg:text-2xl">&nbsp;José Mendoza</h2>
-					</div>
-					<div class="text-[10px] text-center text-white m-auto cursor-pointer md:text-xl">
-						<a href="javascript:void(0)" (click)="onClickButton( 'skills' )">
-							Habilidades
-						</a>
-					</div>
-					<div class="text-[10px] text-center text-white m-auto cursor-pointer md:text-xl">
-						<a href="javascript:void(0)" (click)="onClickButton( 'works' )">
-							Trabajos
-						</a>
-					</div>
-					<!-- LinkedIn -->
-					<div class="flex items-center justify-center cursor-pointer">
-						<a class="flex items-center" href="https://www.linkedin.com/in/josemz93/" target="_blank">
-						<img class="w-[14px] md:w-5" src="/social-network/linkedin.png" alt="">
-						<span class="text-white hidden ml-2 md:inline-block md:text-xl">LinkedIn</span>
-						</a>
-					</div>
-
-					<!-- GitHub -->
-					<div class="flex items-center justify-center cursor-pointer">
-						<a class="flex items-center" href="https://github.com/josemendozaz" target="_blank">
-						<img class="w-[14px] md:w-5" src="/social-network/github.png" alt="">
-						<span class="text-white hidden ml-2 md:inline-block md:text-xl">Github</span>
-						</a>
-		  			</div>
-				</div>
-			</div>
-			<div class="mt-4 mb-2">
-				<div class="w-[90%] mx-auto">
-					<hr class="border-[#43454d]">
-				</div>
+			<!-- NAV HEADER -->
+			<app-nav-header></app-nav-header>
+			<!-- DIVIDER -->
+			<div class="mt-4 mb-2 w-[90%] mx-auto">
+				<hr class="border-[#43454d]">
 			</div>
 		</div>
 		<div class="title mt-5 mb-5">
