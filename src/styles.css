@@ -1,4 +1,7 @@
 @import "tailwindcss";
+html, body {
+	scroll-behavior	: smooth;
+}
 html {
 	-ms-overflow-style: none;  /* Internet Explorer 10+ */
 	scrollbar-width: none;  /* Firefox */
@@ -29,4 +32,16 @@ html::-webkit-scrollbar {
 	/* --screens-md		: 748px; */
 	/* --screens-tablet	: 900px; */
 	/* --screens-lg		: 1024px; */
+}
+
+body {
+	font-family: 'UbuntuFont', sans-serif;
+}
+.arrow {
+	animation	: 2s ease 0s infinite normal none running pulse-down;
+}
+@keyframes pulse-down {
+	0% { transform: translate( 0px, 0px ); }
+	70% { transform: translate( 0px, 20px ); }
+	100% { transform: translate( 0px, 0px ); }
 }
