@@ -4,4 +4,10 @@ export interface Work {
 	title		: string;
 	description	: string;
 	imgs		: string[];
+	technology	: Technology[]
+}
+
+export interface Technology {
+	name : string;
+	icon : string;
 }

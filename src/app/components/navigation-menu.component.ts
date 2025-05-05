@@ -3,6 +3,7 @@
  */
 import { Component, HostListener } from '@angular/core';
 import { RouterModule } from '@angular/router';
+import Bowser from 'bowser';
 /**
  * @class			NavigationMenuComponent
  * @description		Componente que contiene el menu de navegación flotante
@@ -12,7 +13,7 @@ import { RouterModule } from '@angular/router';
 	imports: [],
 	template: `
 		<!-- NAVIGATION BAR FLOAT -->
-		<div class="fixed top-0 left-0 right-0 m-auto h-[6px] translate-y-full w-[95%] mx-auto opacity-0 transition-all duration-200 ease-in-out -z-10 md:bottom-0 md:left-5 md:w-auto md:fixed md:top-[40vh] md:h-auto" [class.show-nav-header]="showNavbar">
+		<div class="fixed top-0 left-0 right-0 m-auto h-[6px] translate-y-full w-[95%] mx-auto opacity-0 transition-all duration-200 ease-in-out -z-50 md:bottom-0 md:left-5 md:w-auto md:top-[40vh] md:h-auto md:z-10 md:translate-none md:opacity-100 md:right-auto" [class.show-nav-header]="showNavbar">
 			<div class="items-center justify-center w-full border-[2px] border-solid border-white md:w-14 mx-auto md:h-auto bg-[#1a1e23] p-2.5 rounded-3xl">
 				<div class="flex flex-row md:flex-col items-center justify-center gap-5 md:gap-2">
 					<div class="cursor-pointer p-0 m-auto text-center ml-4 mr-4 md:ml-0 md:mr-0 md:mt-2 md:mb-2">
@@ -47,6 +48,14 @@ import { RouterModule } from '@angular/router';
  * @description		Componente que contiene el menu de navegación flotante
  */
 export class NavigationMenuComponent {
+	/**
+	 * @var				isMobile
+	 * @description		Almacena booleano que indica si la pagina se está ejecutando desde telefono o desde pc
+	 */
+	isMobile	: boolean	= false;
+
+
+
 	showNavbar = false;
 	/**
 	 * @function		constructor
@@ -55,7 +64,11 @@ export class NavigationMenuComponent {
 	constructor() {}
 	@HostListener('window:scroll', [])
 	onWindowScroll() {
-		this.showNavbar = window.scrollY > 100;
+		const parser 	= Bowser.getParser(navigator.userAgent);
+		this.isMobile	= ( parser.getPlatformType() === 'mobile' ) ? true : false;
+		if ( this.isMobile ) {
+			this.showNavbar = window.scrollY > 100;
+		}
 	}
 	/**
 	 * @function		onClickButton

@@ -18,6 +18,7 @@ import {
 import { NavigationMenuComponent } from "@components/navigation-menu.component";
 import { HomeComponent } from '@components/home.component';
 import { SkillsComponent } from "@components/skills.component";
+import { WorksComponent } from '@components/works.component';
 import { FooterComponent } from '@components/footer.component';
 /**
  * IMPORT SERVICES
@@ -35,13 +36,13 @@ import { ScreenLoadingService } from '@services/screen-loading.service';
 	selector	: 'app-root',
 	standalone	: true,
 	imports: [
-    /*RouterOutlet*/
-    HomeComponent, /* COMPONENT */
-    FooterComponent,
-    SkillsComponent,
-    NavigationMenuComponent
-],
-	// templateUrl	: './app.component.html',
+		/*RouterOutlet*/
+		NavigationMenuComponent,
+		HomeComponent, /* COMPONENT */
+		FooterComponent,
+		SkillsComponent,
+		WorksComponent
+	],
 	template	: `
 		<!-- SCREEN LOADING -->
 		@if( screenLoadingService.getValue ) {
@@ -53,8 +54,6 @@ import { ScreenLoadingService } from '@services/screen-loading.service';
 		}
 		<!-- NAVIGATION MENU -->
 		<app-navigation-menu></app-navigation-menu>
-
-
 		<!-- CONTENT -->
 		<div class="min-h-screen bg-[#292F36] flex flex-col">
 			<div class="flex-1">
@@ -68,51 +67,16 @@ import { ScreenLoadingService } from '@services/screen-loading.service';
 					<app-skills></app-skills>
 				</div>
 				<!-- WORKS -->
-				<div id="works" class="h-full md:h-screen">
-					nostrum ex expedita pariatur...
+				<div id="works" class="relative bg-[#1A1E23] h-full md:h-full">
+					<div class="works-section-bg bg-[url(/background/pc-bg2.jpg)] bg-[rgba(26,30,35,1)] bg-blend-overlay bg-left bg-no-repeat bg-cover w-full h-full absolute"></div>
+					<app-works class="relative"></app-works>
 				</div>
 			</div>
-
-				<!-- Footer que siempre estará abajo -->
+			<!-- Footer que siempre estará abajo -->
 			<div id="footer" class="mt-auto">
 				<app-footer class="footer-section-app"></app-footer>
 			</div>
 		</div>
-
-		<!-- .skills-section-bg {
-	background-image		: url(/background/circuit.png);
-	background-color		: rgba(26, 30, 35, 1);
-	background-blend-mode	: overlay;
-	background-position		: left;
-	background-repeat		: no-repeat;
-	background-size			: auto;
-	height					: 100%;
-	width					: 100%;
-	position				: absolute;
-} -->
-
-		<!-- HOME SECTION -->
-		<!-- <div id="home" [style.height]="innerHeight + 'px'" class="home-section"> -->
-			<!-- data-aos="flip-left" data-aos-easing="ease-out-cubic" data-aos-duration="2000" -->
-			<!-- <app-home  ></app-home> -->
-		<!-- </div> -->
-		<!-- SKILLS SECTION -->
-		<!-- <div id="skills" [style.height]="innerHeight + 'px'" class="skills-section"> -->
-			<!-- <div class="skills-section-bg"></div>
-			<app-skills class="skills-section-app" data-aos="flip-left"
-			data-aos-easing="ease-out-cubic"
-			data-aos-duration="2000"></app-skills> -->
-		<!-- </div> -->
-		<!-- WORKS SECTION -->
-		<!-- <div id="works" [style.height]="innerHeight + 'px'" class="works-section"> -->
-			<!-- <div class="works-section-bg"></div>
-			<app-works class="works-section-app"></app-works> -->
-		<!-- </div> -->
-		<!-- FOOTER SECTION  -->
-		<!-- <div id="footer" class="footer-section"> -->
-			<!-- <app-footer class="footer-section-app"></app-footer> -->
-		<!-- </div> -->
-
 	`,
 	styleUrl	: './app.component.css'
 })
